@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ChallengeRun</string>
+
+    <string-array name="kind_of_sport">
+        <item>run</item>
+        <item>skiing</item>
+        <item>bike</item>
+    </string-array>
 </resources>

@@ -10,42 +10,172 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="by.mix.challengerun.ChallengeRunActivity">
 
-
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:columnCount="4"
         android:rowCount="1">
 
         <Spinner
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
             android:id="@+id/spinner"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_column="0"
+            android:layout_gravity="top"
             android:layout_row="0"
-            android:layout_column="0" />
+            android:entries="@array/kind_of_sport" />
 
         <Button
+            android:id="@+id/button_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Start"
-            android:id="@+id/button2"
+            android:layout_column="1"
             android:layout_row="0"
-            android:layout_column="1" />
+            android:text="Start" />
 
         <Button
+            android:id="@+id/button_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="pause"
-            android:id="@+id/button3"
+            android:layout_column="2"
             android:layout_row="0"
-            android:layout_column="2" />
+            android:text="pause" />
 
         <Button
+            android:id="@+id/button_stop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="stop"
-            android:id="@+id/button4"
+            android:layout_column="3"
             android:layout_row="0"
-            android:layout_column="3" />
+            android:text="stop" />
     </GridLayout>
+
+    <TextView
+        android:id="@+id/textView_Runtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Время в движении"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView_RuntimeRecorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/textView_Distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Преодоленное расстояние"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView_DistanceRecorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/textView_CurrentSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Текущая скорость"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView_CurrentSpeedRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="50sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView_AverageSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="Средняя скорость"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textView_FullSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="Максимальная скорость"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView_FullSpeedRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView_AverageSpeedRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView_Map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Карта"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textView_RunStatistics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Статистика"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
 </LinearLayout>
