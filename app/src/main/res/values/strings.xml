@@ -1,9 +1,29 @@
 <resources>
     <string name="app_name">ChallengeRun</string>
+    <string name="challenge_yourself">Вызов себе</string>
+    <string name="challenge_friend">Вызов другу</string>
+    <string name="challenge_team">Вызов команде</string>
+    <string name="start">Старт</string>
+    <string name="reset">Сброс</string>
+    <string name="stop">Стоп</string>
+    <string name="distance_covered">Преодоленное расстояние</string>
+    <string name="drive_time">Время движения</string>
+    <string name="current_speed">Текущая скорость</string>
+    <string name="average_speed">Средняя скорость</string>
+    <string name="full_speed">Максимальная скорость</string>
+    <string name="run_statistics">Статистика</string>
+    <string name="runtime_recorder">00:00:00</string>
+    <string name="distance_recorder">0 км</string>
+    <string name="current_speed_record">0 км/ч</string>
+    <string name="average_speed_record">0 км/ч</string>
+    <string name="full_speed_record">0 км/ч</string>
 
     <string-array name="kind_of_sport">
-        <item>run</item>
-        <item>skiing</item>
-        <item>bike</item>
+        <item>Бег</item>
+        <item>Велоспорт</item>
+        <item>Лыжи</item>
+        <item>Ходьба</item>
+        <item>Плавание</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 </resources>

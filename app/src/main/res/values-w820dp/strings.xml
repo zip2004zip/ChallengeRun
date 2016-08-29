@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="challenge_yourself">Challenge Yourself</string>
+    <string name="challenge_friend">Challenge Friend</string>
+    <string name="start">Start</string>
+    <string name="distance_covered">Преодоленное расстояние</string>
+</resources>
