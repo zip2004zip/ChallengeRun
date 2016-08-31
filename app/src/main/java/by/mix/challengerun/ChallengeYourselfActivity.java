@@ -1,15 +1,15 @@
 package by.mix.challengerun;
 
+import android.content.Intent;
 import android.os.Handler;
-//import android.support.v7.app.AppCompatActivity;
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-//public class ChallengeYourselfActivity extends AppCompatActivity {
-public class ChallengeYourselfActivity extends Activity {
+public class ChallengeYourselfActivity extends AppCompatActivity implements View.OnClickListener {
 
+    Intent intent;
     private int seconds = 0;
     private boolean running;
 //    private boolean wasRunning; // хранение информации о том, работал ли секундомер перед вызовом метода onStop()
@@ -83,5 +83,15 @@ public class ChallengeYourselfActivity extends Activity {
                 handler.postDelayed(this, 1000);
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.textView_Map:
+                intent = new Intent(this, MapsActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }
