@@ -1,5 +1,7 @@
 package by.mix.challengerun;
 
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -19,11 +21,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-
 
     /**
      * Manipulates the map once available.
@@ -39,8 +39,47 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng chizhi = new LatLng(53.837740, 27.623367);
+        mMap.addMarker(new MarkerOptions().position(chizhi).title("My home in chizhi"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(chizhi));
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
     }
 }
+
+
+
+/*    *//**
+ * Initialises the mapview
+ *//*
+    private void createMapView() {
+        *//**
+ * Catch the null pointer exception that
+ * may be thrown when initialising the map
+ *//*
+        try {
+            if (null == googleMap) {
+                googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+
+                *//**
+ * If the map is still null after attempted initialisation,
+ * show an error to the user
+ *//*
+                if (null == googleMap) {
+                    Toast.makeText(getApplicationContext(),
+                            "Error creating map", Toast.LENGTH_SHORT).show();
+                }
+            }
+        } catch (NullPointerException exception) {
+            Log.e("mapApp", exception.toString());
+        }
+    }*/
