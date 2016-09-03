@@ -34,14 +34,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng chizhi = new LatLng(53.837740, 27.623367);
-        mMap.addMarker(new MarkerOptions().position(chizhi).title("My home in chizhi"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(chizhi));
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -52,34 +49,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         mMap.setMyLocationEnabled(true);
+        mMap.setBuildingsEnabled(false);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.getUiSettings().setZoomGesturesEnabled(true);
+        mMap.getUiSettings().setCompassEnabled(true);
+
+        // Add a marker in city and move the camera
+        LatLng chizhi = new LatLng(53.837740, 27.623367);
+        mMap.addMarker(new MarkerOptions().title("chizhi").snippet("My home best").position(chizhi));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(chizhi, 18));
     }
 }
-
-
-
-/*    *//**
- * Initialises the mapview
- *//*
-    private void createMapView() {
-        *//**
- * Catch the null pointer exception that
- * may be thrown when initialising the map
- *//*
-        try {
-            if (null == googleMap) {
-                googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-
-                *//**
- * If the map is still null after attempted initialisation,
- * show an error to the user
- *//*
-                if (null == googleMap) {
-                    Toast.makeText(getApplicationContext(),
-                            "Error creating map", Toast.LENGTH_SHORT).show();
-                }
-            }
-        } catch (NullPointerException exception) {
-            Log.e("mapApp", exception.toString());
-        }
-    }*/
