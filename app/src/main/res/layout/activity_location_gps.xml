@@ -9,4 +9,38 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="by.mix.challengerun.LocationGPSActivity">
 
+
+    <TextView
+        android:id="@+id/textView_locationGPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:hint="Координаты"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView_LocationSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_locationGPS"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Скорость"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView_LocationAltitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_LocationSpeed"
+        android:layout_alignStart="@+id/textView_LocationSpeed"
+        android:layout_below="@+id/textView_LocationSpeed"
+        android:layout_marginTop="20dp"
+        android:hint="Altitude"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>
