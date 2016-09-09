@@ -43,4 +43,15 @@
         android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+        android:id="@+id/textView_distanceBetween"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_LocationAltitude"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Дистанция"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>

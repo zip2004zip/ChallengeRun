@@ -16,9 +16,11 @@ import android.widget.Toast;
 
 public class LocationGPSActivity extends AppCompatActivity {
 
+    double mySpeed, maxSpeed;
     private TextView textViewLocGPS;
     private TextView textViewLocSpeed;
     private TextView textViewLocAltitude;
+    private TextView textViewDistanceBetween;
 
     private LocationManager locationManager;
     private LocationListener locationListener;
@@ -28,9 +30,11 @@ public class LocationGPSActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_gps);
 
+        maxSpeed = mySpeed = 0;
         textViewLocGPS = (TextView) findViewById(R.id.textView_locationGPS);
         textViewLocSpeed = (TextView) findViewById(R.id.textView_LocationSpeed);
         textViewLocAltitude = (TextView) findViewById(R.id.textView_LocationAltitude);
+        textViewDistanceBetween = (TextView) findViewById(R.id.textView_distanceBetween);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -38,14 +42,16 @@ public class LocationGPSActivity extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                location.getLatitude();
-                location.getLongitude();
-                location.getSpeed();
-                location.getAltitude();
+                //   location.getLatitude();
+                //   location.getLongitude();
+                //   location.getSpeed();
+                //   location.getAltitude();
+                mySpeed = location.getSpeed() * 3600/1000;
                 String txt = "Текущее местоположение: " + "\nLatitud = " + location.getLatitude() + "\nLongitud = " + location.getLongitude();
                 textViewLocGPS.setText(txt);
-                textViewLocSpeed.setText("Текущая скорость: " + "\n" + location.getSpeed() + " км/ч");
+                textViewLocSpeed.setText("Текущая скорость: " + "\n" + mySpeed + " км/ч");
                 textViewLocAltitude.setText("Текущая высота: " + "\n" + location.getAltitude() + " м");
+                textViewDistanceBetween.setText("MaxSpeed " + maxSpeed);
             }
 
             @Override
@@ -69,12 +75,9 @@ public class LocationGPSActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
+                //    ActivityCompat#requestPermissions here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation for ActivityCompat#requestPermissions for more details.
                 return;
             }
         } else {
@@ -83,7 +86,7 @@ public class LocationGPSActivity extends AppCompatActivity {
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, locationListener);
     }
 
-    @Override
+/*    @Override
     protected void onResume() {
         // включаем отслеживание при GPS
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -102,9 +105,9 @@ public class LocationGPSActivity extends AppCompatActivity {
         // locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, mLocationListener);
 
         super.onResume();
-    }
+    }*/
 
-    @Override
+/*    @Override
     protected void onPause() {
         // выключаем отслеживание
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -119,9 +122,12 @@ public class LocationGPSActivity extends AppCompatActivity {
         }
         locationManager.removeUpdates(locationListener);
         super.onPause();
-    }
+    }*/
 }
 
 
 // https://youtu.be/QNb_3QKSmMk
 // http://www.darkraha.com/rus/mobile/android/api/location.php
+// https://toster.ru/q/351880
+// http://apsoid.ru/talk/topic/5579-не-могу-тестировать-под-емулятором-getspeed/
+// http://www.cyberforum.ru/android-dev/thread1646657.html
