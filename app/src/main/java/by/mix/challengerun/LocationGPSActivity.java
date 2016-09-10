@@ -30,6 +30,12 @@ public class LocationGPSActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_gps);
 
+        double startLatitude;
+        double startLongitude
+        double endLatitude;
+        double endLongitude;
+        float[] results;
+
         maxSpeed = mySpeed = 0;
         textViewLocGPS = (TextView) findViewById(R.id.textView_locationGPS);
         textViewLocSpeed = (TextView) findViewById(R.id.textView_LocationSpeed);
@@ -131,3 +137,7 @@ public class LocationGPSActivity extends AppCompatActivity {
 // https://toster.ru/q/351880
 // http://apsoid.ru/talk/topic/5579-не-могу-тестировать-под-емулятором-getspeed/
 // http://www.cyberforum.ru/android-dev/thread1646657.html
+
+// http://stackoverflow.com/questions/5936912/how-to-find-the-distance-between-two-geopoints
+// http://stackoverflow.com/questions/14618016/distancebetween-returns-inaccurate-result
+// http://stackoverflow.com/questions/8049612/calculating-distance-between-two-geographic-locations

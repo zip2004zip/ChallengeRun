@@ -23,7 +23,9 @@ public class ChallengeRunActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.button_challenge_friend:
                 intent = new Intent(this, ChallengeFriendActivity.class);
+                intent.putExtra("fff", 2);
                 startActivity(intent);
+
                 break;
             case R.id.button_challenge_team:
                 intent = new Intent(this, LocationGPSActivity.class);
